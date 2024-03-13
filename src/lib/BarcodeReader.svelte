@@ -1,8 +1,13 @@
 <script lang="ts">
-  import { onMount, onDestroy } from "svelte";
+  import { onDestroy } from "svelte";
   import { BrowserMultiFormatReader, BarcodeFormat } from "@zxing/library";
-  import type { BarcodeEvent } from "svelte-barcode-kit";
   import { browser } from "$app/environment";
+
+  type BarcodeEvent = {
+    text: string;
+    format: string;
+    timestamp: number;
+  };
 
   export let onScan: (event: BarcodeEvent) => void;
 
